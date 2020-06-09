@@ -14,9 +14,8 @@ Usage example:
     bar = None
     ##################################################
     # Create a summary of all newly defined variables
-    summary_content = vtrack.get_table(locals(), sort=True)
+    summary_content = vtrack.save(locals(), sort=True)
     print(summary_content)
-    vtrack.save()
 
 More information on https://github.com/Aypac/VariableTracker
 @author René Vollmer
@@ -67,12 +66,14 @@ class SetupVariableTracker:
         items = self.get_variables(locals_c, sort=sort)
         return tabulate(items, headers=['Parameter', 'Value'], tablefmt="rst")
 
-    def save(self, filename=None):
+    def save(self, locals_c, filename=None, sort: bool = False):
         if not filename:
             import datetime
             filename = datetime.datetime().strftime("YYYY-MM-DD_HH-MM-SS") + "_SetupVariables.log"
 
         import codecs
+        cont = self.get_table(locals_c=locals_c, sort=sort)
         with codecs.open(filename, 'w', 'utf-8') as f:
-            f.write(self.get_table())
+            f.write(cont)
             f.flush()
+        return cont

@@ -14,9 +14,8 @@ Usage example:
     bar = None
     ##################################################
     # Create a summary of all newly defined variables
-    summary_content = vtrack.get_table(locals(), sort=True)
+    summary_content = vtrack.save(locals(), sort=True)
     print(summary_content)
-    vtrack.save()
    
 This will print an overview of the declared variables (`setup_variable_1`, `setup_variable_2`, `foo`, and `bar`) as well as save them in a timestamped `.log` file.
 
