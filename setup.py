@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 
-__version__ = '0.0.1a'
+__version__ = '0.1a'
 
 import sys
 import os
-from setuptools import setup, find_packages
+from setuptools import setup#, find_packages
 
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
@@ -34,18 +34,6 @@ setup(name='SetupVariableTracker',
       #packages=find_packages(),
       packages=['SetupVariableTracker', ],
       install_requires=['tabulate', 'datetime', 'codecs'],
-      # 're>=2.2.1' is a standard part of python
       # test_suite='pyqip.tests',
       zip_safe=False,
-)
-
-setup(
-    name='SetupVariableTracker',
-    version='0.0.1',
-    packages=['tabulate', 'datetime', 'codecs'],
-    url='https://github.com/Aypac/SetupVariableTracker',
-    license='MIT',
-    author='René Vollmer',
-    author_email='SetupVariableTracker@aypac.de',
-    description=''
 )
