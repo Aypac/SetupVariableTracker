@@ -1,10 +1,7 @@
-from tabulate import tabulate  # Library for formatting text tables
-from types import ModuleType
+"""
+Small library to track and log the declaration of new (setup) variables.
 
-
-class SetupVariableTracker:
-    """
-    Usage example:
+Usage example:
 
     from VariableTracker import VariableTracker
     vtrack = VariableTracker(locals())
@@ -20,7 +17,16 @@ class SetupVariableTracker:
     summary_content = vtrack.get_table(locals(), sort=True)
     print(summary_content)
     vtrack.save()
-    """
+
+More information on https://github.com/Aypac/VariableTracker
+@author René Vollmer
+"""
+
+from tabulate import tabulate  # Library for formatting text tables
+from types import ModuleType
+
+
+class SetupVariableTracker:
     base_vars = None
 
     def __init__(self, locals_c, delete: bool = False, verbose: bool = False):

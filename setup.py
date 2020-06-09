@@ -4,10 +4,12 @@ __version__ = '0.0.1'
 
 import sys
 import os
-from setuptools import setup#, find_packages
+from setuptools import setup  # , find_packages
+
 
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
+
 
 setup(name='SetupVariableTracker',
       version=__version__,
@@ -31,9 +33,9 @@ setup(name='SetupVariableTracker',
       # license=read('LICENCE'),
       # if we want to install without tests:
       # packages=find_packages(exclude=["*.tests", "tests"]),
-      #packages=find_packages(),
+      # packages=find_packages(),
       packages=['SetupVariableTracker', ],
       install_requires=['tabulate', 'datetime', 'codecs'],
       # test_suite='pyqip.tests',
       zip_safe=False,
-)
+      )
