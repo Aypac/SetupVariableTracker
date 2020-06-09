@@ -68,8 +68,8 @@ class SetupVariableTracker:
 
     def save(self, locals_c, filename=None, sort: bool = False):
         if not filename:
-            import datetime
-            filename = datetime.datetime().strftime("YYYY-MM-DD_HH-MM-SS") + "_SetupVariables.log"
+            from datetime import datetime
+            filename = datetime.now().strftime("YYYY-MM-DD_HH-MM-SS") + "_SetupVariables.log"
 
         import codecs
         cont = self.get_table(locals_c=locals_c, sort=sort)
