@@ -64,7 +64,7 @@ class SetupVariableTracker:
     def save(self, filename=None):
         if not filename:
             import datetime
-            filename = datetime.datetime().strftime("YYYY-MM-DD_HH-MM-SS_SetupVariables.log")
+            filename = datetime.datetime().strftime("YYYY-MM-DD_HH-MM-SS") + "_SetupVariables.log"
 
         import codecs
         with codecs.open(filename, 'w', 'utf-8') as f:
