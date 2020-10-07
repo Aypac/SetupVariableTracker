@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-__version__ = '0.0.2'
+__version__ = '0.0.3'
 
 import sys
 import os
@@ -35,7 +35,7 @@ setup(name='SetupVariableTracker',
       # packages=find_packages(exclude=["*.tests", "tests"]),
       # packages=find_packages(),
       packages=['SetupVariableTracker', ],
-      install_requires=['tabulate', 'datetime', ],
+      install_requires=['tabulate', 'datetime', 'hashlib'],
       # test_suite='pyqip.tests',
       zip_safe=False,
       )

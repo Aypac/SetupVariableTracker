@@ -48,8 +48,26 @@ class SetupVariableTracker:
         if self._verbose:
             print(msg)
 
+    def get_hash(self, locals_c, hash_size: int = 4):
+        """
+        Generate a MD5 hash value of all variables.
+
+        :param locals_c:  return value of built-in locals() function
+        :param hash_size: Size of the hash to be generated
+        :return: hash
+        """
+        import hashlib
+        vs = self.get_variables(locals_c=locals_c, sort=True)
+        return hashlib.blake2b(str(vs).encode(), digest_size=hash_size).hexdigest()
+
     def get_variables(self, locals_c, sort: bool = False):
-        # Generate overview of defined variables (ignore this)
+        """
+        Generates a list of defined variables.
+
+        :param locals_c: return value of built-in locals() function
+        :param sort: Sort the variables by name?
+        :return: List of newly defined variable names and their values
+        """
         self._print("> Determining newly defined variables...")
         new_vars = list(locals_c.keys())[:]
         new_vars = [k for k in new_vars if k not in self.base_vars]
@@ -61,18 +79,20 @@ class SetupVariableTracker:
         items = [[k, nv[k]] for k in new_vars if not isinstance(locals_c[k], type(self))]
         return items
 
-    def get_table(self, locals_c, sort: bool = False):
+    def get_table(self, locals_c, sort: bool = False, add_hash: bool = False):
         self._print("> Generate variable overview...")
         items = self.get_variables(locals_c, sort=sort)
+        if add_hash:
+            items.append(['hash of all variables', self.get_hash(locals_c)])
         return tabulate(items, headers=['Parameter', 'Value'], tablefmt="rst")
 
-    def save(self, locals_c, filename=None, sort: bool = False):
+    def save(self, locals_c, filename=None, sort: bool = False, add_hash: bool = False):
         if not filename:
             from datetime import datetime
             filename = datetime.now().strftime("YYYY-MM-DD_HH-MM-SS") + "_SetupVariables.log"
 
         import codecs
-        cont = self.get_table(locals_c=locals_c, sort=sort)
+        cont = self.get_table(locals_c=locals_c, sort=sort, add_hash=add_hash)
         with codecs.open(filename, 'w', 'utf-8') as f:
             f.write(cont)
             f.flush()
