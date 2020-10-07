@@ -3,8 +3,8 @@ Very simple library to track and log the declaration of new (setup) variables.
 
 Usage example:
 
-    from VariableTracker import VariableTracker
-    vtrack = VariableTracker(locals())
+    from SetupVariableTracker import SetupVariableTracker
+    vtrack = SetupVariableTracker(locals())
 
     ##################################################
     # Define parameters for this script
