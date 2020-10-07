@@ -36,6 +36,6 @@ setup(name='SetupVariableTracker',
       # packages=find_packages(),
       packages=['SetupVariableTracker', ],
       install_requires=['tabulate', 'datetime', ],
-      # test_suite='pyqip.tests',
+      test_suite='SetupVariableTracker.tests',
       zip_safe=False,
       )
