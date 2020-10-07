@@ -35,7 +35,7 @@ setup(name='SetupVariableTracker',
       # packages=find_packages(exclude=["*.tests", "tests"]),
       # packages=find_packages(),
       packages=['SetupVariableTracker', ],
-      install_requires=['tabulate', 'datetime', 'hashlib'],
+      install_requires=['tabulate', 'datetime', ],
       # test_suite='pyqip.tests',
       zip_safe=False,
       )
