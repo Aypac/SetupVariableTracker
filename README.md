@@ -20,3 +20,6 @@ Usage example:
 This will print an overview of the declared variables (`setup_variable_1`, `setup_variable_2`, `foo`, and `bar`) as well as save them in a timestamped `.log` file.
 
 I know there are more elegant ways to achieve this, but I found this an elegant way to add this functionality to legacy code with very little effort. Hope it'll be useful to others.
+
+## Installation
+`pip install https://github.com/Aypac/SetupVariableTracker`
