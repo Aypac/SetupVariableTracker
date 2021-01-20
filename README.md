@@ -22,4 +22,4 @@ This will print an overview of the declared variables (`setup_variable_1`, `setu
 I know there are more elegant ways to achieve this, but I found this an elegant way to add this functionality to legacy code with very little effort. Hope it'll be useful to others.
 
 ## Installation
-`pip install https://github.com/Aypac/SetupVariableTracker`
+`pip install git+https://github.com/Aypac/SetupVariableTracker`
