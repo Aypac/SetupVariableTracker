@@ -24,12 +24,9 @@ setup(name='SetupVariableTracker',
       classifiers=[
           'Development Status :: 3 - Alpha',
           'Intended Audience :: Developers'
-          'Programming Language :: Python :: 3 :: Only',
-          'Programming Language :: Python :: 3.6',
-          'Programming Language :: Python :: 3.7',
-          'Programming Language :: Python :: 3.8',
           'Topic :: Scientific/Engineering',
       ],
+      python_requires='>=3.6',
       # license=read('LICENCE'),
       # if we want to install without tests:
       # packages=find_packages(exclude=["*.tests", "tests"]),
