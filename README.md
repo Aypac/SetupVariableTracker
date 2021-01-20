@@ -1,7 +1,7 @@
 # SetupVariableTracker [![Build Status](https://travis-ci.com/Aypac/SetupVariableTracker.svg?branch=master)](https://travis-ci.com/Aypac/SetupVariableTracker)
 Very simple library to track and log the declaration of new (setup) variables.
 
-Usage example:
+## Usage example
 
     from SetupVariableTracker import SetupVariableTracker
     vtrack = SetupVariableTracker(locals())
