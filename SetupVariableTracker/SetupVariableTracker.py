@@ -23,7 +23,8 @@ More information on https://github.com/Aypac/VariableTracker
 
 from tabulate import tabulate  # Library for formatting text tables
 from types import ModuleType
-
+import time
+from typing import Union
 
 class SetupVariableTracker:
     base_vars = None
@@ -97,3 +98,43 @@ class SetupVariableTracker:
             f.write(cont)
             f.flush()
         return cont
+
+
+
+class Timekeeper:
+    start_timestamp: float
+    last_timestamp: dict
+
+    def __init__(self):
+        self.start_timestamp = time.time()
+        self.last_timestamp = {}
+        self.touch()
+
+    def touch(self, slot=0):
+        self.last_timestamp[slot] = time.time()
+
+    def total_elapsed_time(self) -> str:
+        self.touch()
+        return Timekeeper.format_time(time.time() - self.start_timestamp)
+
+    def diff_elapsed_time(self, short: bool = True, touch: bool = True, slot=0) -> str:
+        t: str = ""
+        if slot in self.last_timestamp:
+            t = Timekeeper.format_time(time.time() - self.last_timestamp[slot], short=short)
+
+        if touch:
+            self.touch(slot)
+        return t
+
+    @staticmethod
+    def format_time(delta: Union[float, int, np.int64], short: bool = False) -> str:
+        h = int(delta / 3600)
+        m = int(delta / 60)
+        s = ""
+        if not short or h > 0:
+            s += f"{h:02d}:"
+        if not short or m > 0 or h > 0:
+            s += f"{m:02d}:"
+        else:
+            return f"{delta % 60:.3f}s"
+        return s + f"{delta % 60:06.3f}"
