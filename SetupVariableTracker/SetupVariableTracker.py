@@ -127,7 +127,7 @@ class Timekeeper:
         return t
 
     @staticmethod
-    def format_time(delta: Union[float, int, np.int64], short: bool = False) -> str:
+    def format_time(delta: Union[float, int], short: bool = False) -> str:
         h = int(delta / 3600)
         m = int(delta / 60)
         s = ""
