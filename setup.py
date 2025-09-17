@@ -24,7 +24,7 @@ setup(name='SetupVariableTracker',
       url='https://github.com/Aypac/SetupVariableTracker',
       classifiers=[
           'Development Status :: 3 - Alpha',
-          'Intended Audience :: Developers'
+          'Intended Audience :: Developers',
           'Topic :: Scientific/Engineering',
       ],
       python_requires='>=3.6',
