@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-__version__ = '0.0.6'
+__version__ = '0.0.7'
 
 import sys
 import os
@@ -20,6 +20,7 @@ setup(name='SetupVariableTracker',
       maintainer_email='admin@aypac.de',
       description='Small library to track and log the declaration of new (setup) variables',
       long_description=read('README.md'),
+      long_description_content_type='text/markdown',
       url='https://github.com/Aypac/SetupVariableTracker',
       classifiers=[
           'Development Status :: 3 - Alpha',
